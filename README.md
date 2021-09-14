@@ -1,107 +1,53 @@
-# Webpack Intro
+## Welcome to the Almost Amazon application! [![Netlify Status](https://api.netlify.com/api/v1/badges/da9f07dc-b749-435e-9e7d-99ec38165ead/deploy-status)](https://app.netlify.com/sites/almost-amazon-1/deploys)
 
-[See Live Demo of this Template](https://webpack-5-template.netlify.app)
+### [View Site](https://almost-amazon-1.netlify.app)
+### Get Started:
 
-Webpack is a task runner and a module bundler. It originally started as a module bundler. This means that it takes all of your separate Javascript modules and bundles them together into a single file. Webpack also automates some of the tasks that we have to run every time we change the code. It will automate these tasks so that we are not typing in the same commands every single time.
-
-## Topics
-- [Get Started](#get-started)
-- [Starting the Project](#starting-the-project)
-- [Other important tidbits](#other-important-tidbits)
-    - [Console messages](#console-messages)
-    - [Including images with webpack](#including-images-with-webpack)
-    - [Importing CSS](#importing-cssscss)
-    - [Using axios](#using-axios)
-    - [Deploying on Netlify](#deploying-on-netlify)
-___
-
-## Get Started
-
-### Use Template
-#### 1. To get started, click the GREEN "Use this Template" button at the top of the repo
-![Use this Template](./documentation/usetemplate.png)
-
-#### 2. Make sure YOUR github account is selected in the dropdown and name your project
-![Create Project](./documentation/createproject.png)
-
-3. Clone your new repo to your local machine
-4. Go to the **NEXT** section
-
-## Starting the Project
-1. Open the `package.json` file and change the `name` property to the name of your application, and `author` to  your name.
-1. Rename the `.sample.env` file to `.env` file. The final file name should be `.env`
-1. From your command line, be in the root directory and run `npm install` OR `npm i` for short.
-1. To start your application, run `npm start`
-
-### If you see this, you are set to go!
-![LIT](./documentation/lit-screen.png)
-
-**NOTES:** 
-- Changes you make to the project will make the browser reload on save...no more hard refresh unless something goes wrong.
-- You will no longer be using the `hs -o` command. To start your server, you will run `npm start`
-
-## Other Important Tidbits
-### Console messages
-From this time forward, you will be expected to have a clean console in order for your assignments to be approved. This means that the use of `console.log` is acceptable **_(debugger is WAY better though)_** while developing, but will throw an error in your console like the image below, but all `logs` will have to be removed. You may use `console.error` and `console.warn` in your code however for messages. These need to all be removed before pushing to production unless they contain vital info for the user/developer.
-
-![not acceptable](./documentation/notacceptable.png)
-
-### Including Images with Webpack
-If you have a folder of local images that you want to load into your code things get a little strange with webpack.  Remember the only way webpack knows about assets is if they are imported into your javascript files.  Even our CSS is not added until those files are imported into our javascript files.  Below is some sample code for how to load a local image file into your project
-
-```js
-import cat from './assets/cat.jpg';
-
-let domString = `<img src=${cat} alt="picture of a cat"/>`;
-
-document.getElementById('cat').innerHTMl = domString;
+```javascript
+ $ git clone git@github.com:marybethhunter/almost-amazon-1.git
+ $ cd almost-amazon-1
 ```
 
-### Importing CSS/SCSS
-**NOTE:** We will be using SCSS files. They are used the same way your CSS files work, with some added benefits that we will discuss later.
+### About the User
+#### -The ideal user is a reader who needs a way to order, view, and store their favorite books and authors.
+#### -The user can create new book and author cards with titles, names, descriptions, etc. They can edit existing cards and delete cards they no longer need. Individual cards can be marked as favorites and those are tied to the specific user's Google account.
 
-Since Webpack is making the connection to the JS and CSS for us and we are no longer manually adding links or script tags to our HTML, we have to get our styles to the application some way...
+### Features: 
+#### -CRUD: Cards can be created, read, updated, and deleted. New books and authors can be added via forms.
+#### -Filtering: The cards can be filtered by 'Books on Sale' or 'Favorite Authors'.
+#### -Search: The book titles can be searched via the searchbar.
+#### -Authentication: The user will have to log in to the app with Google. This is done through Google Firebase.
 
-Here is how we add our styles using webpack:
+### [Loom video walkthrough]()
 
-```js
-import '../styles/main.scss';
+### Relevant Links:
+#### -[Technical Flowchart](https://docs.google.com/presentation/d/1Y-rQsUZ2UT914b3v1uEqfZrmGzSYIKHqCEROsyHN09k/edit#slide=id.p)
+#### -[View Site](https://almost-amazon-1.netlify.app)
+#### -[ERD](https://dbdiagram.io/d/612580ac6dc2bb6073b9e5ec)
 
-const init = () => {
-  document.querySelector('#app').innerHTML = '<h1>HELLO! You are up and running!</h1>');
-  console.log('YOU ARE UP AND RUNNING!');
-};
+### Code Snippet:
 
-init();
-```
-
-### Using Axios
-> For every file you will need to make an XHR request in, you will need to require Axios
-```js
-import axios from 'axios';
-
-const examplePromise = () => {
-  axios.get('http://localhost:3001/example')
-    .then((data) => {
-      console.warn(data);
-    })
-    .catch((error) => {
-      console.error(error);
-    });
+```javascript
+const viewAuthorDetails = (authorFirebaseKey) => new Promise((resolve, reject) => {
+  getSingleAuthor(authorFirebaseKey)
+    .then((authorObject) => {
+      getBooksBySameAuthor(authorObject.firebaseKey)
+        .then((bookObject) => {
+          resolve({ bookObject, ...authorObject });
+        });
+    }).catch(reject);
 });
 ```
 
-### Deploying on Netlify
+### Screenshots:
 
-- Build Command: `npm run build`
-- Publish directory: `dist`
-- Add Environmental Variables (NOT REQUIRED for Apps that do not use API Keys, etc)
-    - Any Enviromental variables you are using in your `.env` file should be added to Netlify. 
-        - Go to Site settings > Build & deploy > Environment > Environment variables and the keys and values there.
+<img width="960" alt="home-page" src="https://user-images.githubusercontent.com/86667443/133307775-1be53743-e06f-4d29-8171-94e9b0fadb9a.png">
 
-- Update Firebase URL Settings
-    - In Firebase under Authentication select sign in methods, scroll to Authorized domains. Add your Netlify URL.
-        
-## More Info and Resources on Webpack
-- Visit the [Webpack documentation](https://webpack.js.org/concepts/) if you want to explore more.
-- [Info on our Webpack Config](https://github.com/nss-nightclass-projects/Night-Class-Resources/blob/master/book-2-patterns-and-tools/chapters/webpack-configure.md)
+<img width="960" alt="book-details" src="https://user-images.githubusercontent.com/86667443/133307811-679dba5b-23cd-4e87-9281-27f2e64884c1.png">
+
+<img width="960" alt="author-view" src="https://user-images.githubusercontent.com/86667443/133307821-0f0cbdfc-d9e0-4bb6-b127-5b24b778bf24.png">
+
+<img width="960" alt="add-author-form" src="https://user-images.githubusercontent.com/86667443/133307844-287e583b-d6b3-4bd4-b82a-1c49520af21a.png">
+
+
+### Contributors: [Mary Beth Hunter](https://github.com/marybethhunter)
