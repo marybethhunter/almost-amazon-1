@@ -3,7 +3,6 @@ import signOut from '../helpers/auth/signOut';
 import { favoriteAuthors, getAuthors } from '../helpers/data/authorData';
 import { showBooks } from '../components/books';
 import { booksOnSale, getBooks, searchBooks } from '../helpers/data/bookData';
-import viewCart from '../components/viewCart';
 import clearDom from '../helpers/clearDom';
 
 // navigation events
@@ -28,11 +27,6 @@ const navigationEvents = (uid) => {
   document.querySelector('#faveAuthors').addEventListener('click', () => {
     clearDom();
     favoriteAuthors(uid).then(showAuthors);
-  });
-
-  // CART
-  document.querySelector('#cart-btn').addEventListener('click', () => {
-    viewCart();
   });
 
   // SEARCH

@@ -15,7 +15,6 @@ import viewBook from '../components/viewBook';
 import viewAuthor from '../components/viewAuthor';
 // eslint-disable-next-line import/named
 import { viewBookDetails, viewAuthorDetails, deleteAuthorBooks } from '../helpers/data/mergedData';
-import viewCart from '../components/viewCart';
 // import clearDom from '../helpers/clearDom';
 
 const domEvents = (uid) => {
@@ -75,12 +74,6 @@ const domEvents = (uid) => {
     if (e.target.id.includes('view-book-btn')) {
       const [, firebaseKey] = e.target.id.split('--');
       viewBookDetails(firebaseKey).then(viewBook);
-    }
-
-    // CLICK EVENT FOR ADDING BOOK TO CART
-    if (e.target.id.includes('add-to-cart-btn')) {
-      const [, firebaseKey] = e.target.id.split('--');
-      getSingleBook(firebaseKey).then((book) => viewCart(book));
     }
 
     // ADD CLICK EVENT FOR DELETING AN AUTHOR

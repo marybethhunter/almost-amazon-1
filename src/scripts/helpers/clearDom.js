@@ -4,7 +4,6 @@ const clearDom = () => {
   document.querySelector('#add-auth-button').innerHTML = '';
   document.querySelector('#form-container').innerHTML = '';
   document.querySelector('#view').innerHTML = '';
-  document.querySelector('#cart').innerHTML = '';
 };
 
 export default clearDom;
