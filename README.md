@@ -18,7 +18,7 @@
 #### -Search: The book titles can be searched via the searchbar.
 #### -Authentication: The user will have to log in to the app with Google. This is done through Google Firebase.
 
-### [Loom video walkthrough]()
+### [Loom video walkthrough](https://www.loom.com/share/d9b1b4332fb0478a830ae6b4f0624471)
 
 ### Relevant Links:
 #### -[Technical Flowchart](https://docs.google.com/presentation/d/1Y-rQsUZ2UT914b3v1uEqfZrmGzSYIKHqCEROsyHN09k/edit#slide=id.p)
