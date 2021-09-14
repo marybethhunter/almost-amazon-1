@@ -41,13 +41,14 @@ const viewAuthorDetails = (authorFirebaseKey) => new Promise((resolve, reject) =
 
 ### Screenshots:
 
-<img width="960" alt="home-page" src="https://user-images.githubusercontent.com/86667443/133307775-1be53743-e06f-4d29-8171-94e9b0fadb9a.png">
+<img width="960" alt="2021-09-14 (5)" src="https://user-images.githubusercontent.com/86667443/133312112-021dd92b-1248-4d23-a415-933b44d2d09a.png">
 
-<img width="960" alt="book-details" src="https://user-images.githubusercontent.com/86667443/133307811-679dba5b-23cd-4e87-9281-27f2e64884c1.png">
+![2021-09-14 (6)](https://user-images.githubusercontent.com/86667443/133312120-9351edf8-b541-458a-ac22-1473003bfe2c.png)
 
-<img width="960" alt="author-view" src="https://user-images.githubusercontent.com/86667443/133307821-0f0cbdfc-d9e0-4bb6-b127-5b24b778bf24.png">
+![2021-09-14 (7)](https://user-images.githubusercontent.com/86667443/133312136-3e4e3ec7-1e35-4941-9eaf-a6bb7cff8340.png)
 
-<img width="960" alt="add-author-form" src="https://user-images.githubusercontent.com/86667443/133307844-287e583b-d6b3-4bd4-b82a-1c49520af21a.png">
+![2021-09-14 (8)](https://user-images.githubusercontent.com/86667443/133312163-14074617-cdad-48a3-bfae-d083b55b2d5d.png)
+
 
 
 ### Contributors: [Mary Beth Hunter](https://github.com/marybethhunter)
